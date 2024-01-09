@@ -41,6 +41,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
         <Tippy
             interactive // mac dinh ko the select vao Tippy thi interactive = false cta phai thay bang true
             delay={[0, 700]} // nhan mang an hoac hien , sau 500ms thi an di, sau 0s thi hien ngay
+            offset={[12, 8]} // lech len tren 12px va lech sang phai 8px
             placement="bottom-end" //dat vi tri cua tippy
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -59,6 +60,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                     </PopperWrapper>
                 </div>
             )}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))} // kiểm tra nếu tippy không hiện lên nữa thì cho menu quay trở về cấp ban đầu, xóa cấp 1 hoặc cấp 2 đi
         >
             {children}
         </Tippy>
