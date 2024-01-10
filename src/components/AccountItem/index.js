@@ -2,15 +2,16 @@ import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
 function AccountItem() {
     return (
         <div className={cx('wrapper')}>
-            <img
+            <Image
                 className={cx('avatar')}
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/93cf0b0c10af03c36e183041a461d6f4.jpeg?lk3s=a5d48078&x-expires=1704895200&x-signature=yhX9cOHlC3NjfhK6awXjqk4%2FF%2Fk%3D"
+                src="https://p166-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/93cf0b0c10af03c36e183041a461d6f4.jpeg?lk3s=a5d48078&x-expires=1704895200&x-signature=yhX9cOHlC3NjfhK6awXjqk4%2FF%2Fk%3D"
                 alt="ten"
             />
             <div className={cx('info')}>
