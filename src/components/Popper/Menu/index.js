@@ -11,7 +11,12 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({
+    children,
+    items = [],
+    onChange = defaultFn,
+    hideOnClick = false,
+}) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -42,6 +47,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             interactive // mac dinh ko the select vao Tippy thi interactive = false cta phai thay bang true
             delay={[0, 700]} // nhan mang an hoac hien , sau 500ms thi an di, sau 0s thi hien ngay
             offset={[12, 8]} // lech len tren 12px va lech sang phai 8px
+            hideOnClick={hideOnClick} // muốn Tiipy khong bị ẩn đi khi click vào thì thay thuộc tính hideOnClick = false
             placement="bottom-end" //dat vi tri cua tippy
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -56,7 +62,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

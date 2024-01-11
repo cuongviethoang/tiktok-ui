@@ -20,6 +20,7 @@
         font-size: 1.6rem;
         caret-color: var(--primary);
         background: transparent;
+        font-family: var(--font-family);
     }
 
     input:not(:placeholder-shown) ~ .search-btn {
@@ -37,6 +38,7 @@
     }
 
     &:focus-within {
+        // chỉ cần focus vào trong element có class là search thì đều làm cho element có class là search có border-color
         border-color: rgba(22, 24, 35, 0.2);
     }
 }
