@@ -1,5 +1,6 @@
 import Menu, { MenuItem } from '~/layout/components/Sidebar/Menu';
 import config from '~/config';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
@@ -27,6 +28,9 @@ function Sidebar() {
                     icon={<FontAwesomeIcon icon={faVideo} />}
                 />
             </Menu>
+
+            <SuggestedAccounts label="Các tài khoản nên theo dõi" />
+            <SuggestedAccounts label="Các tài khoản đang theo dõi" />
         </aside>
     );
 }
