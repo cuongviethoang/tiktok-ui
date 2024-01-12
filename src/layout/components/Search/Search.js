@@ -10,8 +10,8 @@ import HeadlessTippy from '@tippyjs/react/headless';
 
 import * as searchService from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import useDebounce from '~/hooks/useDebounce';
+import MapTool from '~/components/Maptool';
 
 import styles from './Search.module.scss';
 const cx = classNames.bind(styles);
@@ -19,34 +19,33 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
     // gọi api tìm kiếm người dùng
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
 
         const fetchApi = async () => {
             setLoading(true);
-            const result = await searchService.search(debounced);
+            const result = await searchService.search(debouncedValue);
             setSearchResult(result);
             setLoading(false);
         };
 
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     // click vào icon clear để xóa các kí tự trong ô input
     const handleClear = () => {
         setSearchValue('');
-        setSearchResult([]);
         inputRef.current.focus();
     };
 
@@ -79,9 +78,7 @@ function Search() {
                     >
                         <PopperWrapper>
                             <h4 className={cx('search-title')}>Accounts</h4>
-                            {searchResult.map((user) => (
-                                <AccountItem key={user.id} data={user} />
-                            ))}
+                            <MapTool data={searchResult} />
                         </PopperWrapper>
                     </div>
                 )}

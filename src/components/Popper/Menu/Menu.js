@@ -43,6 +43,27 @@ function Menu({
         });
     };
 
+    const handleBack = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1));
+    };
+
+    // hiển thị dữ liệu trong Tippy qua thuộc tính render
+    const renderResult = (attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && (
+                    <Header title={current.title} onBack={handleBack} />
+                )}
+                <div className={cx('menu-body')}>{renderItems()}</div>
+            </PopperWrapper>
+        </div>
+    );
+
+    // Khi vào menu cấp 2 trên header, di chuột ra ngoài Tippy bị ấn đi, khi chỉ chuột vào tự động về menu cấp 1 không còn ở menu cấp 2 nữa
+    const handleRestMenu = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+
     return (
         <Tippy
             interactive // mac dinh ko the select vao Tippy thi interactive = false cta phai thay bang true
@@ -50,24 +71,8 @@ function Menu({
             offset={[12, 8]} // lech len tren 12px va lech sang phai 8px
             hideOnClick={hideOnClick} // muốn Tiipy khong bị ẩn đi khi click vào thì thay thuộc tính hideOnClick = false
             placement="bottom-end" //dat vi tri cua tippy
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title}
-                                onBack={() => {
-                                    setHistory((prev) =>
-                                        prev.slice(0, prev.length - 1),
-                                    );
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-body')}>{renderItems()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onHide={() => setHistory((prev) => prev.slice(0, 1))} // kiểm tra nếu tippy không hiện lên nữa thì cho menu quay trở về cấp ban đầu, xóa cấp 1 hoặc cấp 2 đi
+            render={renderResult}
+            onHide={handleRestMenu} // kiểm tra nếu tippy không hiện lên nữa thì cho menu quay trở về cấp ban đầu, xóa cấp 1 hoặc cấp 2 đi
         >
             {children}
         </Tippy>
