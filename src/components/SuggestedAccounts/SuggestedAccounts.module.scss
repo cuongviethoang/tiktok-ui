@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     padding: 8px;
+    cursor: pointer;
 }
 
 .avatar {
@@ -56,7 +57,6 @@
 .name {
     font-size: 1.2rem;
     color: rgba(22, 24, 35, 0.75);
-    line-height: 1;
 }
 
 .more-btn {
