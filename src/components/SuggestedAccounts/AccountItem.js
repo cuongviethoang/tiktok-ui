@@ -1,19 +1,30 @@
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
+import { Link } from 'react-router-dom';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import Image from '~/components/Image';
 import AccountPreview from './AccountPreview';
 import styles from './SuggestedAccounts.module.scss';
+import { memo } from 'react';
 
 const cx = classNames.bind(styles);
-function AccountItem() {
+function AccountItem({ srcImage, nickName, fullName, tich, followers, likes }) {
     const renderPreview = (props) => {
         return (
             <div tabIndex="-1" {...props}>
                 <PopperWrapper>
-                    <AccountPreview />
+                    <AccountPreview
+                        srcImage={srcImage}
+                        nickName={nickName}
+                        fullName={fullName}
+                        tich={tich}
+                        followers={followers}
+                        likes={likes}
+                    />
                 </PopperWrapper>
             </div>
         );
@@ -27,26 +38,32 @@ function AccountItem() {
                 placement="bottom"
                 render={renderPreview}
             >
-                <div className={cx('account-item')}>
-                    <img
-                        className={cx('avatar')}
-                        src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/48b79b557748bf7f676500a458c0d666.jpeg?lk3s=a5d48078&x-expires=1705237200&x-signature=SpywNkQghps8lU%2FxNcXUhES1c1E%3D"
-                        alt=""
-                    />
+                <Link to={`/@${nickName}`} className={cx('account-item')}>
+                    <Image alt="" className={cx('avatar')} src={srcImage} />
                     <div className={cx('item-info')}>
                         <p className={cx('nickname')}>
-                            <strong>cuong xoan</strong>
-                            <FontAwesomeIcon
-                                className={cx('icon')}
-                                icon={faCheckCircle}
-                            />
+                            <strong>{nickName}</strong>
+                            {tich && (
+                                <FontAwesomeIcon
+                                    className={cx('icon')}
+                                    icon={faCheckCircle}
+                                />
+                            )}
                         </p>
-                        <p className={cx('name')}>Hoang Viet Cuong</p>
+                        <p className={cx('name')}>{fullName}</p>
                     </div>
-                </div>
+                </Link>
             </Tippy>
         </div>
     );
 }
 
-export default AccountItem;
+AccountItem.propTypes = {
+    srcImage: PropTypes.string,
+    nickName: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
+    followers: PropTypes.string.isRequired,
+    likes: PropTypes.string.isRequired,
+};
+
+export default memo(AccountItem);

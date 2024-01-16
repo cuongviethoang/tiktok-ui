@@ -1,4 +1,4 @@
-@import 'normalize.css';
+@import 'normalize.css'; // reset css
 
 :root {
     --primary: #fe2c55;
@@ -10,9 +10,9 @@
         sans-serif;
 
     //default-layout
-    --default-layout-header-height: 60px;
-    --default-layout-width: 1150px; // chieu dai cua header tiktok
-    --default-layout-horizontal-spacer: 24px; // padding 2 ben cua header
+    --default-layout-header-height: 60px; // chieu cao header
+    --default-layout-width: 1150px; // chieu ngang cua header|content tiktok
+    --default-layout-horizontal-spacer: 24px; // padding 2 ben cua header|content
 }
 
 * {
@@ -29,9 +29,9 @@ body {
     font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
-    text-rendering: optimizeSpeed; // toi uu toc do hien thi phong
+    text-rendering: optimizeSpeed; // tối ưu hóa tốc độ hiển thị phông
     color: var(--text-color);
-    overflow-y: overlay;
+    overflow-y: overlay; // nổi scrollbar lêm khỏi content
 }
 
 // Scrollbar CSS

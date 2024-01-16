@@ -5,18 +5,18 @@ import styles from './Button.module.scss';
 const cx = classNames.bind(styles);
 
 function Button({
-    to, // neu co prop la to thi thay element button thanh the Link
+    to, // neu co prop la to thi thay element button thanh thẻ Link
     href, // neu co prop la href thay button thanh the a
     primary = false, // vi du nhu btn Log in tren giao dien
     outline = false, // vi du nhu kieu chi co mau chu va border hien len, khong co mau nen
     text = false, // vi du nhu upload tren giao dien
     rounded = false, // kieu bo goc 4 ben cho btn
-    disable = false,
+    disable = false, // nếu button nào có prop này thì chỉ được dùng để hiện thị không cho bắt sự kiện
     small = false, // kieu nut nho
     large = false, // kieu nut lon
-    children,
+    children, // nội dung bên trong button
     className, // nhan className tu the cha
-    leftIcon, // truyen prop icon den
+    leftIcon, // truyen prop icon
     rightIcon,
     onClick, // truyen hanh dong onClick xuong
     ...passProps // tat ca ca thuoc tinh con lai khong thuoc cac thuoc tinh tren
@@ -31,12 +31,12 @@ function Button({
     if (disable) {
         Object.keys(props).forEach((key) => {
             if (key.startsWith('on') && typeof props[key] === 'function') {
-                delete props[key]; // neu co prop la disable thi bo luon prop nhan hanh dong bang tu bang dau la on di
+                delete props[key]; // nếu có prop là disable thì bỏ luôn prop nhận hành động bằng từ on (ví dụ: onClick, onDoubleClick, ...)
             }
         });
     }
     if (to) {
-        props.to = to;
+        props.to = to; // thêm 1 prop được truyền đến là to vào thêm vào props
         Comp = Link;
     } else if (href) {
         props.href = href;

@@ -1,5 +1,6 @@
 .wrapper {
     width: 356px;
-    padding: 20px 0 26px 0px;
+    height: calc(100vh - var(--default-layout-header-height));
     margin-left: -8px;
+    overflow: auto;
 }

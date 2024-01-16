@@ -4,35 +4,42 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './AccountPreview.module.scss';
 import Button from '~/components/Button';
+import Image from '~/components/Image';
+import { memo } from 'react';
 
 const cx = classNames.bind(styles);
 
-function AccountPreview() {
+function AccountPreview({
+    srcImage,
+    nickName,
+    fullName,
+    tich = false,
+    followers,
+    likes,
+}) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <img
-                    className={cx('avatar')}
-                    src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/48b79b557748bf7f676500a458c0d666.jpeg?lk3s=a5d48078&x-expires=1705237200&x-signature=SpywNkQghps8lU%2FxNcXUhES1c1E%3D"
-                    alt=""
-                />
+                <Image className={cx('avatar')} src={srcImage} alt="" />
                 <Button className={cx('follow-btn')} primary small>
                     Follow
                 </Button>
             </div>
             <div className={cx('body')}>
                 <p className={cx('nickname')}>
-                    <strong>cuong xoan</strong>
-                    <FontAwesomeIcon
-                        className={cx('icon')}
-                        icon={faCheckCircle}
-                    />
+                    <strong>{nickName}</strong>
+                    {tich && (
+                        <FontAwesomeIcon
+                            className={cx('icon')}
+                            icon={faCheckCircle}
+                        />
+                    )}
                 </p>
-                <p className={cx('name')}>Hoang Viet Cuong</p>
+                <p className={cx('name')}>{fullName}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>8.2M</strong>
+                    <strong className={cx('value')}>{followers}</strong>
                     <span className={cx('label')}>Followers</span>
-                    <strong className={cx('value')}>20.2M</strong>
+                    <strong className={cx('value')}>{likes}</strong>
                     <span className={cx('label')}>Likes</span>
                 </p>
             </div>
@@ -40,4 +47,4 @@ function AccountPreview() {
     );
 }
 
-export default AccountPreview;
+export default memo(AccountPreview);

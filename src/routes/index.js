@@ -11,7 +11,7 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import Live from '~/pages/Live';
 
-// Public routes
+// Public routes, can accept without token
 const publicRoutes = [
     {
         path: config.routes.home,

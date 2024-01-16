@@ -32,6 +32,7 @@ import config from '~/config';
 
 const cx = classNames.bind(styles);
 
+// menu khi chưa đăng nhập
 const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -62,13 +63,14 @@ const MENU_ITEM = [
 ];
 
 function Header() {
-    // Giả định người dùng đã đăng nhập
+    // Giả định người dùng chưa/đã đăng nhập
     const currentUser = true;
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
     };
 
+    // menu khi đã đăng nhập
     const userMenu = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
@@ -117,7 +119,6 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 {/* Logo */}
-
                 <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
@@ -171,7 +172,7 @@ function Header() {
                     >
                         {currentUser ? (
                             <Image
-                                src="https://p166-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/dd85033197f64be28c23b0735e04e98f.jpeg?lk3s=a5d48078&x-expires=1704978000&x-signature=iWvKx8EpdfqQlBDzvZRhne%2BcZk0%3D"
+                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/f1dfcd09aa4c2c7dca9d77f1f0433e4a~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705413600&x-signature=rFW13j7gE4zGqGQ7YK4F2Vm5vW8%3D"
                                 className={cx('user-avatar')}
                                 alt=""
                             />

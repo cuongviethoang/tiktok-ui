@@ -28,6 +28,11 @@
     align-items: center;
     padding: 8px;
     cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: #f8f8f8;
+    }
 }
 
 .avatar {
@@ -40,6 +45,7 @@
 
 .item-info {
     flex: 1;
+    text-align: left;
 }
 
 .nickname {

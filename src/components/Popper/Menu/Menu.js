@@ -19,7 +19,7 @@ function Menu({
     hideOnClick = false,
 }) {
     const [history, setHistory] = useState([{ data: items }]);
-    const current = history[history.length - 1];
+    const current = history[history.length - 1]; // lấy object cuối cùng của mảng
 
     const renderItems = () => {
         return current.data.map((item, index) => {
@@ -68,7 +68,7 @@ function Menu({
         <Tippy
             interactive // mac dinh ko the select vao Tippy thi interactive = false cta phai thay bang true
             delay={[0, 700]} // nhan mang an hoac hien , sau 500ms thi an di, sau 0s thi hien ngay
-            offset={[12, 8]} // lech len tren 12px va lech sang phai 8px
+            offset={[12, 8]} // lech len tren 12px va lech sang phai 8px (x,y)
             hideOnClick={hideOnClick} // muốn Tiipy khong bị ẩn đi khi click vào thì thay thuộc tính hideOnClick = false
             placement="bottom-end" //dat vi tri cua tippy
             render={renderResult}

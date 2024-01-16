@@ -69,7 +69,7 @@ function Search() {
             <HeadlessTippy
                 offset={[0, 0]} // điều chỉnh vị trí của Tippy
                 interactive // mac dinh ko the select vao Tippy thi interactive = false cta phai thay bang true
-                visible={showResult && searchResult.length > 0} // neu mang co phan tu thi du lieu moi hien len
+                visible={showResult && searchResult.length > 0} // nếu mảng có phần tử và input đc focus thì dữ liệu mới hiện lên
                 render={(attrs) => (
                     <div
                         className={cx('search-result')}
