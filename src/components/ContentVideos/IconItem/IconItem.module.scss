@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    font-size: 2.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 50%;
+    margin: 8px 0 6px;
+}
+
+.number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(22, 24, 35, 0.75);
+    text-align: center;
+}
