@@ -29,7 +29,13 @@ const StyleVideo = forwardRef(
             small,
         });
         return (
-            <video className={classes} ref={videoRef} src={src} loop></video>
+            <video
+                className={classes}
+                ref={videoRef}
+                src={src}
+                loop
+                {...props}
+            ></video>
         );
     },
 );
