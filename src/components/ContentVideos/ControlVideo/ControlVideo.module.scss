@@ -1,0 +1,47 @@
+.wrapper {
+    position: relative;
+    &:hover .control,
+    &:hover .dot {
+        display: block;
+    }
+}
+
+.icon-video {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--white);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.control {
+    display: none;
+    left: 22px;
+    bottom: var(--spacer-bottom);
+}
+
+.volume {
+    right: var(--space-right);
+    bottom: var(--spacer-bottom);
+}
+
+.dot {
+    display: none;
+    top: 20px;
+    right: var(--space-right);
+
+    &:hover + .popper {
+        display: block;
+    }
+}
+
+.popper {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+.item-popper {
+    margin-left: 0;
+}

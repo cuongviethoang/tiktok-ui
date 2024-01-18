@@ -1,5 +1,7 @@
 // ContentVideos
 .wrapper {
+    --spacer-bottom: 42px;
+    --space-right: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,7 +117,4 @@
 .info-video {
     display: flex;
     align-items: flex-end;
-}
-
-.list-icon {
 }

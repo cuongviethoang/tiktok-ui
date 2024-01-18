@@ -10,7 +10,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
-function Sidebar() {
+function Sidebar({ onScroll }) {
     const [checkMouseInSide, setCheckMouseInSide] = useState(false);
 
     const handleMouseEnter = () => {
@@ -20,6 +20,11 @@ function Sidebar() {
     const handleMouseLeave = () => {
         setCheckMouseInSide(true);
     };
+
+    // const handleStopPropagation = (e) => {
+    //     e.stopPropagation();
+    //     e.preventDefault();
+    // };
 
     const renderTrackVertical = ({ style, ...props }) => {
         const trackStyle = {
@@ -44,6 +49,7 @@ function Sidebar() {
             className={cx('wrapper')}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onScroll={onScroll}
         >
             <Scrollbars
                 autoHide={checkMouseInSide} //  Thuộc tính này là một hàm gọi lại sẽ được kích hoạt khi sự kiện cuộn xảy ra.

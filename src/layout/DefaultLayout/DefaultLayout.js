@@ -7,11 +7,17 @@ import styles from './DefaultLayout.module.scss';
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
+    const handleStopPropagation = (e) => {
+        e.stopPropagation();
+    };
     return (
         <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
-                <Sidebar className={cx('sidebar')} />
+                <Sidebar
+                    className={cx('sidebar')}
+                    onScroll={handleStopPropagation}
+                />
                 <div className={cx('content')}>{children}</div>
             </div>
         </div>

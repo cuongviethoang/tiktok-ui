@@ -178,8 +178,6 @@ const MENU_INFO_VIDEO = [
 function ContentVideos() {
     const [contentVideos, setContentVideos] = useState([...MENU_INFO_VIDEO]);
 
-    console.log(contentVideos);
-
     return (
         <div className={cx('wrapper')}>
             {contentVideos.map((content, index) => (

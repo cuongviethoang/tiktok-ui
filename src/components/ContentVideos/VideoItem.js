@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './ContentVideos.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,14 +13,16 @@ import {
 
 import Image from '~/components/Image';
 import Button from '~/components/Button';
-import Video from './Video';
 import IconItem from './IconItem';
+import ControlVideo from './ControlVideo';
 
 const cx = classNames.bind(styles);
+
 function VideoItem({ data }) {
     return (
         <div className={cx('container')}>
             <Image className={cx('image')} src={data.src} alt="" />
+
             <div className={cx('inner')}>
                 <div className={cx('info')}>
                     <div className={cx('info-name')}>
@@ -67,7 +70,7 @@ function VideoItem({ data }) {
                     </div>
                 </div>
                 <div className={cx('info-video')}>
-                    <Video src={data.video} />
+                    <ControlVideo src={data.video} />
                     <div className={cx('list-icon')}>
                         <IconItem
                             icon={<FontAwesomeIcon icon={faHeart} />}
@@ -91,5 +94,9 @@ function VideoItem({ data }) {
         </div>
     );
 }
+
+VideoItem.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default VideoItem;
