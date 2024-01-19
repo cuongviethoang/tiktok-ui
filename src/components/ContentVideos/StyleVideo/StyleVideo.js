@@ -21,6 +21,30 @@ const StyleVideo = forwardRef(
             unmuted() {
                 videoRef.current.muted = false;
             },
+            getCurrentTime() {
+                return videoRef.current.currentTime;
+            },
+            getDuration() {
+                return videoRef.current.duration;
+            },
+            addTimeUpdateListener(callback) {
+                videoRef.current.addEventListener('timeupdate', callback);
+            },
+            addLoadedMetadataListener(callback) {
+                videoRef.current.addEventListener('loadedmetadata', callback);
+            },
+            updateTimeClickListener(num) {
+                return (videoRef.current.currentTime = num);
+            },
+            removeTimeUpdateListener(callback) {
+                videoRef.current.removeEventListener('timeupdate', callback);
+            },
+            removeLoadedMetadataListener(callback) {
+                videoRef.current.removeEventListener(
+                    'loadedmetadata',
+                    callback,
+                );
+            },
         }));
 
         const classes = cx('video', {

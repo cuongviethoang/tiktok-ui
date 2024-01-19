@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ControlVideo.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,12 +35,16 @@ const ControlVideo = ({ src }) => {
 
     const [checkTurnVideo, setCheckTurnVideo] = useState(false);
     const [checkTurnVolume, setCheckTurnVolume] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
 
+    // pause dừng video
     const handleTurnControlOff = () => {
         setCheckTurnVideo(!checkTurnVideo);
         videoRef.current.pause();
     };
 
+    // play video
     const handleTurnControlOn = () => {
         setCheckTurnVideo(!checkTurnVideo);
         setCheckTurnVolume(true);
@@ -48,27 +52,52 @@ const ControlVideo = ({ src }) => {
         videoRef.current.unmuted();
     };
 
+    // tắt tiếng
     const handleTurnVolumeMute = () => {
         setCheckTurnVolume(!checkTurnVolume);
         videoRef.current.muted();
     };
 
+    // bật tiếng
     const handleTurnVolumeOn = () => {
         setCheckTurnVolume(!checkTurnVolume);
         videoRef.current.unmuted();
     };
 
-    const renderTippy = (props) => {
-        return (
-            <div tabIndex="-1" {...props}>
-                <PopperWrapper>
-                    {MENU_ITEM.map((item, index) => (
-                        <MenuItem data={item} key={index} />
-                    ))}
-                </PopperWrapper>
-            </div>
-        );
+    // xử lý tua video
+    const handleProgressBarClick = (e) => {
+        const video = videoRef.current;
+        const clickPosition =
+            e.clientX - e.currentTarget.getBoundingClientRect().left;
+        const progressBarWidth = e.currentTarget.offsetWidth;
+        const percentageClicked = clickPosition / progressBarWidth;
+
+        const currentClick = duration * percentageClicked;
+        setCurrentTime(currentClick);
+        video.updateTimeClickListener(currentClick);
     };
+
+    useEffect(() => {
+        const video = videoRef.current;
+
+        // cập nhật thời gian đang chạy của video
+        const handleTimeUpdate = () => {
+            setCurrentTime(video.getCurrentTime());
+        };
+
+        // cập nhật tổng thời gian video
+        const handleLoadedMetadata = () => {
+            setDuration(video.getDuration());
+        };
+
+        video.addTimeUpdateListener(handleTimeUpdate);
+        video.addLoadedMetadataListener(handleLoadedMetadata);
+
+        return () => {
+            video.removeTimeUpdateListener(handleTimeUpdate);
+            video.removeLoadedMetadataListener(handleLoadedMetadata);
+        };
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
@@ -100,22 +129,56 @@ const ControlVideo = ({ src }) => {
                 />
             )}
 
-            <Tippy
-                interactive
-                delay={[0, 200]}
-                offset={[-490, 0]}
-                placement="right"
-                render={renderTippy}
-            >
-                <div>
-                    <FontAwesomeIcon
-                        icon={faEllipsis}
-                        className={cx('icon-video', 'dot')}
-                    />
+            <span>
+                <Tippy
+                    interactive
+                    delay={[0, 200]}
+                    offset={[-490, 20]}
+                    placement="right"
+                    render={(props) => (
+                        <div tabIndex="-1" {...props}>
+                            <PopperWrapper>
+                                {MENU_ITEM.map((item, index) => (
+                                    <MenuItem data={item} key={index} />
+                                ))}
+                            </PopperWrapper>
+                        </div>
+                    )}
+                >
+                    <div>
+                        <FontAwesomeIcon
+                            icon={faEllipsis}
+                            className={cx('icon-video', 'dot')}
+                        />
+                    </div>
+                </Tippy>
+            </span>
+
+            <div className={cx('progress')}>
+                <div
+                    className={cx('progress-bar')}
+                    onClick={handleProgressBarClick}
+                >
+                    <div
+                        className={cx('progress-bar-fill')}
+                        style={{ width: `${(currentTime / duration) * 100}%` }}
+                    ></div>
                 </div>
-            </Tippy>
+
+                <p className={cx('progress-bar-num')}>
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                </p>
+            </div>
         </div>
     );
+};
+
+const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${String(minutes).padStart(2, '0')}:${String(
+        remainingSeconds,
+    ).padStart(2, '0')}`;
 };
 
 ControlVideo.propTypes = {
