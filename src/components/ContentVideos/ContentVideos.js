@@ -173,6 +173,198 @@ const MENU_INFO_VIDEO = [
         numShareVideo: '90',
         followed: 'true',
     },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
+    {
+        src: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/9221a868bf2b64043075c7fc15f62085~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1705586400&x-signature=HkH8nfvDDatzl8cOyvenDtrHk8g%3D',
+        nickName: '.lilian.aa',
+        fullName: 'lilla👀💭',
+        content: 'chỗ này ghi nội dung',
+        linkTag: [
+            {
+                tag: '#CapCut',
+            },
+            {
+                tag: '#fyp',
+            },
+            {
+                tag: '#ic',
+            },
+        ],
+        linkSong: 'som origin',
+        video: `${videos.video}`,
+        numLikes: '114.4k',
+        numComment: '278',
+        numSaveStore: '3226',
+        numShareVideo: '90',
+        followed: 'true',
+    },
 ];
 
 function ContentVideos() {

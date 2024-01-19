@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCaretUp } from '@fortawesome/free-solid-svg-icons';
+import LazyLoad from 'react-lazyload';
 
 import Header from '~/layout/components/Header';
 import Sidebar from '~/layout/components/Sidebar';
@@ -44,8 +45,12 @@ function DefaultLayout({ children }) {
         <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
-                <Sidebar className={cx('sidebar')} />
-                <div className={cx('content')}>{children}</div>
+                <LazyLoad height={200} offset={50}>
+                    <Sidebar className={cx('sidebar')} />
+                </LazyLoad>
+                <LazyLoad height={200} offset={100}>
+                    <div className={cx('content')}>{children}</div>
+                </LazyLoad>
             </div>
 
             {isVisible && (
