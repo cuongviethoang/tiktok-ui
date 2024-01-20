@@ -36,15 +36,15 @@ const StyleVideo = forwardRef(
             updateTimeClickListener(num) {
                 return (videoRef.current.currentTime = num);
             },
-            removeTimeUpdateListener(callback) {
-                videoRef.current.removeEventListener('timeupdate', callback);
-            },
-            removeLoadedMetadataListener(callback) {
-                videoRef.current.removeEventListener(
-                    'loadedmetadata',
-                    callback,
-                );
-            },
+            // removeTimeUpdateListener(callback) {
+            //     videoRef.current.removeEventListener('timeupdate', callback);
+            // },
+            // removeLoadedMetadataListener(callback) {
+            //     videoRef.current.removeEventListener(
+            //         'loadedmetadata',
+            //         callback,
+            //     );
+            // },
         }));
 
         const classes = cx('video', {

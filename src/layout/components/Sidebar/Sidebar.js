@@ -21,11 +21,6 @@ function Sidebar({ onScroll }) {
         setCheckMouseInSide(true);
     };
 
-    // const handleStopPropagation = (e) => {
-    //     e.stopPropagation();
-    //     e.preventDefault();
-    // };
-
     const renderTrackVertical = ({ style, ...props }) => {
         const trackStyle = {
             width: '6px',

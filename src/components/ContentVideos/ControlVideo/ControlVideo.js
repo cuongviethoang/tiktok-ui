@@ -93,10 +93,10 @@ const ControlVideo = ({ src }) => {
         video.addTimeUpdateListener(handleTimeUpdate);
         video.addLoadedMetadataListener(handleLoadedMetadata);
 
-        return () => {
-            video.removeTimeUpdateListener(handleTimeUpdate);
-            video.removeLoadedMetadataListener(handleLoadedMetadata);
-        };
+        // return () => {
+        //     video.removeTimeUpdateListener(handleTimeUpdate);
+        //     video.removeLoadedMetadataListener(handleLoadedMetadata);
+        // };
     }, []);
 
     return (

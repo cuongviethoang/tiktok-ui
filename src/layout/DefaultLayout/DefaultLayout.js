@@ -45,12 +45,12 @@ function DefaultLayout({ children }) {
         <div className={cx('wrapper')}>
             <Header />
             <div className={cx('container')}>
-                <LazyLoad height={200} offset={50}>
-                    <Sidebar className={cx('sidebar')} />
-                </LazyLoad>
-                <LazyLoad height={200} offset={100}>
-                    <div className={cx('content')}>{children}</div>
-                </LazyLoad>
+                <Sidebar className={cx('sidebar')} />
+                <div className={cx('content')}>
+                    <LazyLoad height={200} offset={100} resize>
+                        {children}
+                    </LazyLoad>
+                </div>
             </div>
 
             {isVisible && (
