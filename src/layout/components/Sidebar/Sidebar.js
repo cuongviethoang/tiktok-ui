@@ -1,13 +1,19 @@
-import Menu, { MenuItem } from '~/layout/components/Sidebar/Menu';
+import { useState } from 'react';
+import classNames from 'classnames/bind';
+import { Scrollbars } from 'react-custom-scrollbars';
+
 import config from '~/config';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
-
-import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
-import { Scrollbars } from 'react-custom-scrollbars';
-import { useState } from 'react';
+import Menu, { MenuItem } from '~/layout/components/Sidebar/Menu';
+import {
+    HomeIcon,
+    FollowIcon,
+    FriendIcon,
+    DiscoverIcon,
+    LiveIcon,
+    ProfileIcon,
+} from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 function Sidebar({ onScroll }) {
@@ -57,17 +63,32 @@ function Sidebar({ onScroll }) {
                     <MenuItem
                         title="For You"
                         to={config.routes.home}
-                        icon={<FontAwesomeIcon icon={faHouse} />}
+                        icon={<HomeIcon width="3.2rem" height="3.2rem" />}
                     />
                     <MenuItem
-                        title="Following"
+                        title="Đang Follow"
                         to={config.routes.following}
-                        icon={<FontAwesomeIcon icon={faUsers} />}
+                        icon={<FollowIcon width="2.4rem" height="2.4rem" />}
+                    />
+                    <MenuItem
+                        title="Bạn bè"
+                        to={config.routes.friend}
+                        icon={<FriendIcon width="3.2rem" height="3.2rem" />}
+                    />
+                    <MenuItem
+                        title="Khám phá"
+                        to={config.routes.explore}
+                        icon={<DiscoverIcon width="3.2rem" height="3.2rem" />}
                     />
                     <MenuItem
                         title="LIVE"
                         to={config.routes.live}
-                        icon={<FontAwesomeIcon icon={faVideo} />}
+                        icon={<LiveIcon width="2.4rem" height="2.4rem" />}
+                    />
+                    <MenuItem
+                        title="Hồ sơ"
+                        to={config.routes.profile}
+                        icon={<ProfileIcon width="2.4rem" height="2.4rem" />}
                     />
                 </Menu>
 

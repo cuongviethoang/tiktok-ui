@@ -1,81 +1,80 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import 'tippy.js/dist/tippy.css';
 import classNames from 'classnames/bind';
 import styles from './ContentVideos.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faBolt,
-    faLink,
-    faSquareEnvelope,
-} from '@fortawesome/free-solid-svg-icons';
 
 import Image from '~/components/Image';
 import IconItem from './IconItem';
 import ControlVideo from './ControlVideo';
 import MenuItem from '~/components/Popper/Menu/MenuItem';
 import InfoVideo from './InfoVideo';
+
 import {
-    faFacebook,
-    faLine,
-    faLinkedin,
-    faPinterest,
-    faSquareReddit,
-    faSquareTwitter,
-    faSquareWhatsapp,
-    faTelegram,
-} from '@fortawesome/free-brands-svg-icons';
+    EmbedIcon,
+    EmailIcon,
+    ShareIcon,
+    FacebookIcon,
+    WhatsAppIcon,
+    LinkIcon,
+    TwitterIcon,
+    LinkedInIcon,
+    RedditIcon,
+    TelegramIcon,
+    LineIcon,
+    PinterestIcon,
+} from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEM = [
     {
-        icon: <FontAwesomeIcon icon={faBolt} />,
+        icon: <EmbedIcon width="2.6rem" height="2.6rem" viewBox="0 0 24 24" />,
         title: 'Nhúng',
     },
     {
-        icon: <FontAwesomeIcon icon={faTelegram} />,
+        icon: <ShareIcon width="2.6rem" height="2.6rem" viewBox="0 0 24 24" />,
         title: 'Gửi đến bạn bè',
     },
     {
-        icon: <FontAwesomeIcon icon={faFacebook} />,
+        icon: <FacebookIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Facebook',
     },
     {
-        icon: <FontAwesomeIcon icon={faSquareWhatsapp} />,
+        icon: <WhatsAppIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với WhatsApp',
     },
     {
-        icon: <FontAwesomeIcon icon={faLink} />,
+        icon: <LinkIcon width="2.6rem" height="2.6rem" viewBox="0 0 24 24" />,
         title: 'Sao chép liên kết',
     },
     {
-        icon: <FontAwesomeIcon icon={faSquareTwitter} />,
+        icon: <TwitterIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Twitter',
     },
     {
-        icon: <FontAwesomeIcon icon={faLinkedin} />,
+        icon: <LinkedInIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Linkedin',
     },
     {
-        icon: <FontAwesomeIcon icon={faSquareReddit} />,
+        icon: <RedditIcon width="2.6rem" height="2.6rem" viewBox="0 0 24 24" />,
         title: 'Chia sẻ với Reddit',
     },
     {
-        icon: <FontAwesomeIcon icon={faTelegram} />,
+        icon: <TelegramIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Telegram',
     },
     {
-        icon: <FontAwesomeIcon icon={faSquareEnvelope} />,
+        icon: <EmailIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Email',
     },
     {
-        icon: <FontAwesomeIcon icon={faLine} />,
+        icon: <LineIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Line',
     },
     {
-        icon: <FontAwesomeIcon icon={faPinterest} />,
+        icon: <PinterestIcon width="2.6rem" height="2.6rem" />,
         title: 'Chia sẻ với Pinterest',
     },
 ];
@@ -100,7 +99,10 @@ function VideoItem({ data }) {
             default:
                 setCheckIconShare(!checkIconShare);
         }
-        console.log(index);
+    };
+
+    const handleDisableScroll = (e) => {
+        e.isPropagationStopped();
     };
 
     return (
@@ -123,21 +125,16 @@ function VideoItem({ data }) {
                                     render={(attrs) => (
                                         <div
                                             className={cx('menu-list')}
+                                            onScroll={handleDisableScroll}
                                             tabIndex="-1"
                                             {...attrs}
                                         >
-                                            <PopperWrapper
-                                                className={cx('menu-popper')}
-                                            >
-                                                {MENU_ITEM.map(
-                                                    (item, index) => (
-                                                        <MenuItem
-                                                            data={item}
-                                                            key={index}
-                                                        />
-                                                    ),
-                                                )}
-                                            </PopperWrapper>
+                                            {MENU_ITEM.map((item, index) => (
+                                                <MenuItem
+                                                    data={item}
+                                                    key={index}
+                                                />
+                                            ))}
                                         </div>
                                     )}
                                 >

@@ -1,22 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faEllipsisVertical,
-    faEarthAsia,
-    faCircleQuestion,
-    faKeyboard,
-    faCloudUpload,
-    faMessage,
-    faBell,
-    faGear,
-    faFileVideo,
-    faVideo,
-    faCircleDollarToSlot,
-    faFileLines,
-    faUser,
-    faMoon,
-    faArrowRightFromBracket,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -29,13 +13,29 @@ import Image from '~/components/Image';
 import Search from '../Search';
 // Config routes
 import config from '~/config';
+import {
+    UploadIcon,
+    MessageIcon,
+    NotificationIcon,
+    UserIcon,
+    BookMarkIcon,
+    CoinIcon,
+    LiveIcon,
+    CreateIcon,
+    SettingIcon,
+    LanguageIcon,
+    HelpIcon,
+    KeyboardIcon,
+    DarkModeIcon,
+    LogoutIcon,
+} from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
 // menu khi chưa đăng nhập
 const MENU_ITEM = [
     {
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        icon: <LanguageIcon />,
         title: 'Vietnamese',
         children: {
             title: 'Language',
@@ -52,12 +52,12 @@ const MENU_ITEM = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <HelpIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <KeyboardIcon />,
         title: 'Keyboard shortcuts',
     },
 ];
@@ -73,42 +73,42 @@ function Header() {
     // menu khi đã đăng nhập
     const userMenu = [
         {
-            icon: <FontAwesomeIcon icon={faUser} />,
+            icon: <UserIcon />,
             title: 'Xem hồ sơ',
             to: '/@user',
         },
         {
-            icon: <FontAwesomeIcon icon={faFileLines} />,
+            icon: <BookMarkIcon />,
             title: 'Yêu thích',
             to: '/loveLive',
         },
         {
-            icon: <FontAwesomeIcon icon={faCircleDollarToSlot} />,
+            icon: <CoinIcon viewBox="0 0 20 20" />,
             title: 'Nhận xu',
             to: '/coin?enter_from=web_main_nav',
         },
         {
-            icon: <FontAwesomeIcon icon={faVideo} />,
+            icon: <LiveIcon />,
             title: 'Live studio',
             to: '/studio/download?enter_from=profile',
         },
         {
-            icon: <FontAwesomeIcon icon={faFileVideo} />,
+            icon: <CreateIcon viewBox="0 0 20 20" />,
             title: 'Trung tâm Nhà sáng tạo LIVE',
             to: '/live/creators?enter_from=portrait&lang=vi-VN&region=VN',
         },
         {
-            icon: <FontAwesomeIcon icon={faGear} />,
+            icon: <SettingIcon />,
             title: 'Cài đặt',
             to: '/setting',
         },
         {
-            icon: <FontAwesomeIcon icon={faMoon} />,
+            icon: <DarkModeIcon />,
             title: 'Chế độ sáng tối',
         },
         ...MENU_ITEM,
         {
-            icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+            icon: <LogoutIcon />,
             title: 'Đăng xuất',
             to: '/logout',
             separate: true, // thuộc tính này để sử dụng border-top cho mỗi MenuItem trong Menu
@@ -136,7 +136,7 @@ function Header() {
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon viewBox="0 0 30 30" />
                                 </button>
                             </Tippy>
                             <Tippy
@@ -145,7 +145,7 @@ function Header() {
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <MessageIcon />
                                     <span className={cx('badge')}>3</span>
                                 </button>
                             </Tippy>
@@ -155,7 +155,7 @@ function Header() {
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faBell} />
+                                    <NotificationIcon viewBox="0 0 30 30" />
                                     <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
